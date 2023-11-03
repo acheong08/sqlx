@@ -25,7 +25,7 @@ import (
 	_ "github.com/go-sql-driver/mysql"
 	"github.com/jmoiron/sqlx/reflectx"
 	_ "github.com/lib/pq"
-	_ "github.com/glebarez/sqlite"
+	_ "github.com/mattn/go-sqlite3"
 )
 
 /* compile time checks that Db, Tx, Stmt (qStmt) implement expected interfaces */
@@ -83,7 +83,7 @@ func ConnectAll() {
 	}
 
 	if TestSqlite {
-		sldb, err = Connect("sqlite", sqdsn)
+		sldb, err = Connect("sqlite3", sqdsn)
 		if err != nil {
 			fmt.Printf("Disabling SQLite:\n    %v", err)
 			TestSqlite = false
