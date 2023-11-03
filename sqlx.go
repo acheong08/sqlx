@@ -938,9 +938,9 @@ func scanAll(rows rowsi, dest interface{}, structOnly bool) error {
 		var values []interface{}
 		var m *reflectx.Mapper
 
-		switch rows.(type) {
+		switch rows :=rows.(type) {
 		case *Rows:
-			m = rows.(*Rows).Mapper
+			m = rows.Mapper
 		default:
 			m = mapper()
 		}
