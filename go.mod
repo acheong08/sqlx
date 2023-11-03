@@ -1,4 +1,4 @@
-module github.com/jmoiron/sqlx
+module github.com/acheong08/squealx
 
 go 1.19
 
