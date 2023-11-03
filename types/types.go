@@ -6,8 +6,7 @@ import (
 	"database/sql/driver"
 	"encoding/json"
 	"errors"
-
-	"io/ioutil"
+	"io"
 )
 
 // GzippedText is a []byte which transparently gzips data being submitted to
@@ -36,14 +35,14 @@ func (g *GzippedText) Scan(src interface{}) error {
 	case []byte:
 		source = src
 	default:
-		return errors.New("Incompatible type for GzippedText")
+		return errors.New("incompatible type for GzippedText")
 	}
 	reader, err := gzip.NewReader(bytes.NewReader(source))
 	if err != nil {
 		return err
 	}
 	defer reader.Close()
-	b, err := ioutil.ReadAll(reader)
+	b, err := io.ReadAll(reader)
 	if err != nil {
 		return err
 	}
@@ -102,7 +101,7 @@ func (j *JSONText) Scan(src interface{}) error {
 	case nil:
 		*j = emptyJSON
 	default:
-		return errors.New("Incompatible type for JSONText")
+		return errors.New("incompatible type for JSONText")
 	}
 	*j = append((*j)[0:0], source...)
 	return nil

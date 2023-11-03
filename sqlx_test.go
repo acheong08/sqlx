@@ -7,7 +7,7 @@
 // Set any of these variables to 'skip' to skip them.  Note that for MySQL,
 // the string '?parseTime=True' will be appended to the DSN if it's not there
 // already.
-package sqlx
+package squealx
 
 import (
 	"database/sql"
@@ -40,7 +40,8 @@ var TestMysql = true
 var sldb *DB
 var pgdb *DB
 var mysqldb *DB
-var active = []*DB{}
+
+// var active = []*DB{}
 
 func init() {
 	ConnectAll()

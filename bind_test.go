@@ -1,4 +1,4 @@
-package sqlx
+package squealx
 
 import (
 	"math/rand"

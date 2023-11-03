@@ -1,4 +1,4 @@
-package sqlx
+package squealx
 
 import (
 	"database/sql"
@@ -139,12 +139,12 @@ func TestNamedQueries(t *testing.T) {
 		var err error
 
 		// Check that invalid preparations fail
-		ns, err = db.PrepareNamed("SELECT * FROM person WHERE first_name=:first:name")
+		_, err = db.PrepareNamed("SELECT * FROM person WHERE first_name=:first:name")
 		if err == nil {
 			t.Error("Expected an error with invalid prepared statement.")
 		}
 
-		ns, err = db.PrepareNamed("invalid sql")
+		_, err = db.PrepareNamed("invalid sql")
 		if err == nil {
 			t.Error("Expected an error with invalid prepared statement.")
 		}
@@ -435,8 +435,8 @@ func TestFixBounds(t *testing.T) {
 			loop: 2,
 		},
 		{
-			name:   `query with "join" generated table`,
-			query:	`
+			name: `query with "join" generated table`,
+			query: `
 				SELECT
 					t_1.code_values, t_2.name, t_2.age, t_2.first, t_2.last
 				FROM public.table_1 t_1
@@ -456,11 +456,11 @@ func TestFixBounds(t *testing.T) {
 				ON
 					t_1.code_values = t_2.code
 			`,
-			loop:   2,
+			loop: 2,
 		},
 		{
-			name:   `insert with select generated table`,
-			query:	`
+			name: `insert with select generated table`,
+			query: `
 				INSERT INTO public.table_1 t_1
 				SELECT * FROM
 					(VALUES (:v_code, :v_name, 18, :v_first, 'const_value_1')) --- comment
@@ -472,11 +472,11 @@ func TestFixBounds(t *testing.T) {
 					(VALUES (:v_code, :v_name, 18, :v_first, 'const_value_1'),(:v_code, :v_name, 18, :v_first, 'const_value_1')) --- comment
 					t_2 (code, name, age, first, last);
 			`,
-			loop:   2,
+			loop: 2,
 		},
 		{
-			name:   `insert with select generated table with new lines`,
-			query:	`
+			name: `insert with select generated table with new lines`,
+			query: `
 				INSERT INTO public.table_1 t_1
 				SELECT * FROM
 					(VALUES (
@@ -506,11 +506,11 @@ func TestFixBounds(t *testing.T) {
 					)) --- comment
 					t_2 (code, name, age, first, last);
 			`,
-			loop:   2,
+			loop: 2,
 		},
 		{
-			name:   `insert with select generated table with new lines mysql syntax`,
-			query:	`
+			name: `insert with select generated table with new lines mysql syntax`,
+			query: `
 				INSERT INTO public.table_1 t_1
 				SELECT * FROM
 					(VALUES (
@@ -540,7 +540,7 @@ func TestFixBounds(t *testing.T) {
 					)) --- comment
 					t_2 (code, name, age, first, last);
 			`,
-			loop:   2,
+			loop: 2,
 		},
 	}
 

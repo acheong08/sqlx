@@ -10,7 +10,7 @@
 // Set any of these variables to 'skip' to skip them.  Note that for MySQL,
 // the string '?parseTime=True' will be appended to the DSN if it's not there
 // already.
-package sqlx
+package squealx
 
 import (
 	"context"
@@ -1486,10 +1486,10 @@ func TestConn(t *testing.T) {
 
 	RunWithSchemaContext(context.Background(), schema, t, func(ctx context.Context, db *DB, t *testing.T) {
 		conn, err := db.Connx(ctx)
-		defer conn.Close()
 		if err != nil {
 			t.Fatal(err)
 		}
+		defer conn.Close()
 
 		_, err = conn.ExecContext(ctx, conn.Rebind(`INSERT INTO tt_conn (id, value) VALUES (?, ?), (?, ?)`), 1, "a", 2, "b")
 		if err != nil {

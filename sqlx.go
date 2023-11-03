@@ -1,8 +1,7 @@
-package sqlx
+package squealx
 
 import (
 	"database/sql"
-	"database/sql/driver"
 	"errors"
 	"fmt"
 
@@ -160,7 +159,8 @@ func mapperFor(i interface{}) *reflectx.Mapper {
 }
 
 var _scannerInterface = reflect.TypeOf((*sql.Scanner)(nil)).Elem()
-var _valuerInterface = reflect.TypeOf((*driver.Valuer)(nil)).Elem()
+
+// var _valuerInterface = reflect.TypeOf((*driver.Valuer)(nil)).Elem()
 
 // Row is a reimplementation of sql.Row in order to gain access to the underlying
 // sql.Rows.Columns() data, necessary for StructScan.
