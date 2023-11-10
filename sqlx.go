@@ -11,7 +11,7 @@ import (
 	"strings"
 	"sync"
 
-	"github.com/acheong08/squealx/reflectx"
+	"github.com/g-utils/squealx/reflectx"
 )
 
 // Although the NameMapper is convenient, in practice it should not

@@ -1,4 +1,4 @@
-module github.com/acheong08/squealx
+module github.com/g-utils/squealx
 
 go 1.19
 

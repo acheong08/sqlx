@@ -1,6 +1,6 @@
 # sqlx
 
-[![Build Status](https://travis-ci.org/jmoiron/sqlx.svg?branch=master)](https://travis-ci.org/jmoiron/sqlx) [![Coverage Status](https://coveralls.io/repos/github/jmoiron/sqlx/badge.svg?branch=master)](https://coveralls.io/github/jmoiron/sqlx?branch=master) [![Godoc](http://img.shields.io/badge/godoc-reference-blue.svg?style=flat)](https://godoc.org/github.com/acheong08/squealx) [![license](http://img.shields.io/badge/license-MIT-red.svg?style=flat)](https://raw.githubusercontent.com/jmoiron/sqlx/master/LICENSE)
+[![Build Status](https://travis-ci.org/jmoiron/sqlx.svg?branch=master)](https://travis-ci.org/jmoiron/sqlx) [![Coverage Status](https://coveralls.io/repos/github/jmoiron/sqlx/badge.svg?branch=master)](https://coveralls.io/github/jmoiron/sqlx?branch=master) [![Godoc](http://img.shields.io/badge/godoc-reference-blue.svg?style=flat)](https://godoc.org/github.com/g-utils/squealx) [![license](http://img.shields.io/badge/license-MIT-red.svg?style=flat)](https://raw.githubusercontent.com/jmoiron/sqlx/master/LICENSE)
 
 sqlx is a library which provides a set of extensions on go's standard
 `database/sql` library. The sqlx versions of `sql.DB`, `sql.TX`, `sql.Stmt`,
@@ -14,7 +14,7 @@ Major additional concepts are:
 - Named parameter support including prepared statements
 - `Get` and `Select` to go quickly from query to struct/slice
 
-In addition to the [godoc API documentation](http://godoc.org/github.com/acheong08/squealx),
+In addition to the [godoc API documentation](http://godoc.org/github.com/g-utils/squealx),
 there is also some [user documentation](http://jmoiron.github.io/sqlx/) that
 explains how to use `database/sql` along with sqlx.
 
@@ -46,7 +46,7 @@ will get major version number bumps.
 
 ## install
 
-    go get github.com/acheong08/squealx
+    go get github.com/g-utils/squealx
 
 ## issues
 
@@ -64,7 +64,7 @@ to give columns distinct names, `rows.Scan` to scan them manually, or
 ## usage
 
 Below is an example which shows some common use cases for sqlx. Check
-[sqlx_test.go](https://github.com/acheong08/squealx/blob/master/sqlx_test.go) for more
+[sqlx_test.go](https://github.com/g-utils/squealx/blob/master/sqlx_test.go) for more
 usage.
 
 ```go
@@ -76,7 +76,7 @@ import (
     "log"
 
     _ "github.com/lib/pq"
-    "github.com/acheong08/squealx"
+    "github.com/g-utils/squealx"
 )
 
 var schema = `

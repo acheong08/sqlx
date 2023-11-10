@@ -22,7 +22,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/acheong08/squealx/reflectx"
+	"github.com/g-utils/squealx/reflectx"
 	_ "github.com/go-sql-driver/mysql"
 	_ "github.com/lib/pq"
 	_ "github.com/mattn/go-sqlite3"

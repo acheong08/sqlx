@@ -9,7 +9,7 @@ import (
 	"strings"
 	"sync"
 
-	"github.com/acheong08/squealx/reflectx"
+	"github.com/g-utils/squealx/reflectx"
 )
 
 // Bindvar types supported by Rebind, BindMap and BindStruct.
